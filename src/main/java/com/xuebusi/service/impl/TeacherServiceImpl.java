@@ -1,14 +1,14 @@
 package com.xuebusi.service.impl;
 
-import com.xuebusi.common.cache.InitDataCacheMap;
-import com.xuebusi.entity.Teacher;
-import com.xuebusi.repository.TeacherRepository;
-import com.xuebusi.service.TeacherService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.xuebusi.common.cache.InitDataCacheMap;
+import com.xuebusi.entity.Teacher;
+import com.xuebusi.service.TeacherService;
 
 /**
  * 讲师
@@ -17,8 +17,8 @@ import java.util.List;
 @Service
 public class TeacherServiceImpl implements TeacherService {
 
-    @Autowired
-    private TeacherRepository teacherRepository;
+	// @Autowired
+	// private TeacherRepository teacherRepository;
 
     /**
      * 查询讲师信息
@@ -31,7 +31,7 @@ public class TeacherServiceImpl implements TeacherService {
         if (teacher != null) {
             return teacher;
         }
-        return teacherRepository.findOne(id);
+		return new Teacher();
     }
 
     /**
@@ -44,7 +44,7 @@ public class TeacherServiceImpl implements TeacherService {
         if (teachers != null && teachers.size() > 0) {
             return (List<Teacher>) teachers;
         }
-        return teacherRepository.findAll();
+		return new ArrayList<Teacher>();
     }
 
 }

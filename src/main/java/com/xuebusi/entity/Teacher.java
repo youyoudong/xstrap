@@ -1,18 +1,14 @@
 package com.xuebusi.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 /**
  * 讲师
  * Created by SYJ on 2017/10/8.
  */
-@Entity
-@Table(name = "tb_teacher")
+//@Entity
+//@Table(name = "tb_teacher")
 public class Teacher {
 
-    @Id
+//    @Id
     private Integer id;
     private String teacherName;
     private String teacherAbout;

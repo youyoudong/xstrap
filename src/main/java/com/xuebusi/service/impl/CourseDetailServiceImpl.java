@@ -1,13 +1,13 @@
 package com.xuebusi.service.impl;
 
-import com.xuebusi.common.cache.InitDataCacheMap;
-import com.xuebusi.entity.CourseDetail;
-import com.xuebusi.repository.CourseDetailRepository;
-import com.xuebusi.service.CourseDetailService;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.xuebusi.common.cache.InitDataCacheMap;
+import com.xuebusi.entity.CourseDetail;
+import com.xuebusi.service.CourseDetailService;
 
 /**
  * 课程详情
@@ -16,8 +16,8 @@ import java.util.List;
 @Service
 public class CourseDetailServiceImpl implements CourseDetailService {
 
-    @Autowired
-    private CourseDetailRepository courseDetailRepository;
+//    @Autowired
+//    private CourseDetailRepository courseDetailRepository;
 
     /**
      * 根据课程id查询课程详情
@@ -30,7 +30,7 @@ public class CourseDetailServiceImpl implements CourseDetailService {
         if (courseDetail != null) {
             return courseDetail;
         }
-        return courseDetailRepository.findOne(courseId);
+        return courseDetail;
     }
 
     /**
@@ -39,6 +39,6 @@ public class CourseDetailServiceImpl implements CourseDetailService {
      */
     @Override
     public List<CourseDetail> findAll() {
-        return courseDetailRepository.findAll();
+        return new ArrayList<CourseDetail>();
     }
 }

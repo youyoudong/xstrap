@@ -1,14 +1,14 @@
 package com.xuebusi.service.impl;
 
-import com.xuebusi.common.cache.InitDataCacheMap;
-import com.xuebusi.entity.Lesson;
-import com.xuebusi.repository.LessonRepository;
-import com.xuebusi.service.LessonService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.xuebusi.common.cache.InitDataCacheMap;
+import com.xuebusi.entity.Lesson;
+import com.xuebusi.service.LessonService;
 
 /**
  * 课程目录
@@ -17,8 +17,8 @@ import java.util.List;
 @Service
 public class LessonServiceImpl implements LessonService {
 
-    @Autowired
-    private LessonRepository lessonRepository;
+	// @Autowired
+	// private LessonRepository lessonRepository;
 
     @Override
     public Lesson findOne(Integer id) {
@@ -26,7 +26,7 @@ public class LessonServiceImpl implements LessonService {
         if (lesson != null) {
             return lesson;
         }
-        return lessonRepository.findOne(id);
+		return lesson;
     }
 
     /**
@@ -39,7 +39,7 @@ public class LessonServiceImpl implements LessonService {
         if (lessons != null && lessons.size() > 0) {
             return (List<Lesson>) lessons;
         }
-        return lessonRepository.findAll();
+		return (List<Lesson>) lessons;
     }
 
     /**
@@ -49,6 +49,7 @@ public class LessonServiceImpl implements LessonService {
      */
     @Override
     public List<Lesson> findByCourseId(Integer courseId) {
-        return lessonRepository.findByCourseId(courseId);
+		// return lessonRepository.findByCourseId(courseId);
+		return new ArrayList<Lesson>();
     }
 }

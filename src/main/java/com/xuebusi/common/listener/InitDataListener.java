@@ -1,21 +1,34 @@
 package com.xuebusi.common.listener;
 
-import com.xuebusi.common.cache.InitDataCacheMap;
-import com.xuebusi.entity.*;
-import com.xuebusi.service.*;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import java.util.List;
+
+import com.xuebusi.common.cache.InitDataCacheMap;
+import com.xuebusi.entity.Course;
+import com.xuebusi.entity.CourseDetail;
+import com.xuebusi.entity.Lesson;
+import com.xuebusi.entity.LoginInfo;
+import com.xuebusi.entity.Teacher;
+import com.xuebusi.entity.User;
+import com.xuebusi.service.CourseDetailService;
+import com.xuebusi.service.CourseService;
+import com.xuebusi.service.LessonService;
+import com.xuebusi.service.LoginService;
+import com.xuebusi.service.TeacherService;
+import com.xuebusi.service.UserService;
 
 /**
  * 启动时缓存数据
  * Created by SYJ on 2017/10/26.
  */
 @Component
-public class InitDataListener implements InitializingBean/*, ServletContextAware*/ {
+public class InitDataListener
+// implements InitializingBean/*, ServletContextAware*/
+{
 
     private static final Logger logger = LoggerFactory.getLogger(InitDataListener.class);
 
@@ -39,7 +52,7 @@ public class InitDataListener implements InitializingBean/*, ServletContextAware
 
     //private ServletContext servletContext;
 
-    @Override
+	// @Override
     public void afterPropertiesSet() throws Exception {
         loginInfoCache();
         courseCache();

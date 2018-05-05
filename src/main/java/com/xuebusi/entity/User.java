@@ -1,18 +1,17 @@
 package com.xuebusi.entity;
 
-import javax.persistence.*;
 import java.util.Date;
 
 /**
  * 用户基础信息表
  * Created by SYJ on 2017/10/15.
  */
-@Entity
-@Table(name="tb_user")
+//@Entity
+//@Table(name="tb_user")
 public class User {
 
-    @Id
-    @GeneratedValue
+//    @Id
+//    @GeneratedValue
     private Integer id;
     private String username;//用户名
     private Date createTime;//创建时间

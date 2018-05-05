@@ -1,21 +1,17 @@
 package com.xuebusi.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.util.Date;
 
 /**
  * 登录用户表
  * Created by SYJ on 2017/10/26.
  */
-@Entity
-@Table(name = "tb_login_info")
+//@Entity
+//@Table(name = "tb_login_info")
 public class LoginInfo {
 
-    @Id
-    @GeneratedValue
+//    @Id
+//    @GeneratedValue
     private Integer id;
     private String username;
     private String password;

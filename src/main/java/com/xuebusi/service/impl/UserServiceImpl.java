@@ -1,14 +1,14 @@
 package com.xuebusi.service.impl;
 
-import com.xuebusi.common.cache.InitDataCacheMap;
-import com.xuebusi.entity.User;
-import com.xuebusi.repository.UserRepository;
-import com.xuebusi.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.xuebusi.common.cache.InitDataCacheMap;
+import com.xuebusi.entity.User;
+import com.xuebusi.service.UserService;
 
 /**
  * 用户基础信息
@@ -17,8 +17,8 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+	// @Autowired
+	// private UserRepository userRepository;
 
     @Override
     public User findOne(Integer id) {
@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
                 return user;
             }
         }
-        return userRepository.findOne(id);
+		return new User();
     }
 
     @Override
@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
         if (users != null && users.size() > 0) {
             return (List<User>) users;
         }
-        return userRepository.findAll();
+		return new ArrayList<User>();
     }
 
     /**
@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
         if (user != null) {
             return user;
         }
-        return userRepository.findByUsername(username);
+		return new User();
     }
 
     /**
@@ -61,8 +61,8 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public User save(User user) {
-        User newUser = userRepository.save(user);
-        InitDataCacheMap.getUserCacheMap().put(newUser.getUsername(), newUser);
-        return newUser;
+		// User newUser = userRepository.save(user);
+		// InitDataCacheMap.getUserCacheMap().put(newUser.getUsername(), newUser);
+		return user;
     }
 }

@@ -1,10 +1,9 @@
 package com.xuebusi.controller;
 
-import com.xuebusi.common.utils.MD5Utils;
-import com.xuebusi.entity.LoginInfo;
-import com.xuebusi.entity.User;
-import com.xuebusi.service.LoginService;
-import com.xuebusi.service.UserService;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
+import com.xuebusi.common.utils.MD5Utils;
+import com.xuebusi.entity.LoginInfo;
+import com.xuebusi.entity.User;
+import com.xuebusi.service.LoginService;
+import com.xuebusi.service.UserService;
 
 /**
  * 登录
@@ -118,10 +120,16 @@ public class LoginController extends BaseController {
             return new ModelAndView(new RedirectView("/my/courses/learning"), map);
         }
 
-        LoginInfo loginInfo = loginService.findByUsername(username);
+		// LoginInfo loginInfo = loginService.findByUsername(username);
+		LoginInfo loginInfo = new LoginInfo();
+		loginInfo.setUsername(username);
 
-        if (loginInfo != null && loginInfo.getPassword().equals(MD5Utils.md5(password))) {
-            User user = userService.findByUsername(username);
+		// if (loginInfo != null &&
+		// loginInfo.getPassword().equals(MD5Utils.md5(password))) {
+		if (loginInfo != null) {
+			// User user = userService.findByUsername(username);
+			User user = new User();
+			user.setUsername(username);
             //登录后将用户信息放入Session
             request.getSession().setAttribute("user", user);
             map.put("user", user);

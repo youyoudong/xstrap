@@ -1,19 +1,16 @@
 package com.xuebusi.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.util.Date;
 
 /**
  * 课程信息
  * Created by SYJ on 2017/10/7.
  */
-@Entity
-@Table(name = "tb_course")
+//@Entity
+//@Table(name = "tb_course")
 public class Course {
 
-    @Id
+//    @Id
     private Integer id;
     private String courseTitle;
     private String courseImgUrl;
